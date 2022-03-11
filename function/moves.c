@@ -64,19 +64,22 @@ void	move_right(t_draw *i)
 {
 	if (g_map[i->p_n][i->p_x + 1] != '1')
 	{
-		mlx_put_image_to_window(i->mlx, i->wind, i->zero,
-			i->p_x * 50, i->p_n * 50);
-		i->p_x++;
-		mlx_put_image_to_window(i->mlx, i->wind, i->player_r,
-			i->p_x * 50, i->p_n * 50);
-		if (g_map[i->p_n][i->p_x - 1] == 'C')
-			g_map[i->p_n][i->p_x - 1] = '0';
-		if (g_map[i->p_n][i->p_x] == 'B')
-		{	
-			mlx_destroy_window(i->mlx, i->wind);
-			free(i);
-			write (1, "YOU WIN\n", 8);
-			exit(1);
+		if (g_map[i->p_n][i->p_x + 1] != 'E')
+		{
+			mlx_put_image_to_window(i->mlx, i->wind, i->zero,
+				i->p_x * 50, i->p_n * 50);
+			i->p_x++;
+			mlx_put_image_to_window(i->mlx, i->wind, i->player_r,
+				i->p_x * 50, i->p_n * 50);
+			if (g_map[i->p_n][i->p_x - 1] == 'C')
+				g_map[i->p_n][i->p_x - 1] = '0';
+			if (g_map[i->p_n][i->p_x] == 'B')
+			{	
+				mlx_destroy_window(i->mlx, i->wind);
+				free(i);
+				write (1, "YOU WIN\n", 8);
+				exit(1);
+			}
 		}
 	}
 }
@@ -85,19 +88,22 @@ void	move_left(t_draw *i)
 {
 	if (g_map[i->p_n][i->p_x - 1] != '1')
 	{
-		mlx_put_image_to_window(i->mlx, i->wind, i->zero,
-			i->p_x * 50, i->p_n * 50);
-		i->p_x--;
-		mlx_put_image_to_window(i->mlx, i->wind, i->player_l,
-			i->p_x * 50, i->p_n * 50);
-		if (g_map[i->p_n][i->p_x + 1] == 'C')
-			g_map[i->p_n][i->p_x + 1] = '0';
-		if (g_map[i->p_n][i->p_x] == 'B')
+		if (g_map[i->p_n][i->p_x - 1] != 'E')
 		{
-			mlx_destroy_window(i->mlx, i->wind);
-			free(i);
-			write (1, "YOU WIN\n", 8);
-			exit(1);
+			mlx_put_image_to_window(i->mlx, i->wind, i->zero,
+				i->p_x * 50, i->p_n * 50);
+			i->p_x--;
+			mlx_put_image_to_window(i->mlx, i->wind, i->player_l,
+				i->p_x * 50, i->p_n * 50);
+			if (g_map[i->p_n][i->p_x + 1] == 'C')
+				g_map[i->p_n][i->p_x + 1] = '0';
+			if (g_map[i->p_n][i->p_x] == 'B')
+			{
+				mlx_destroy_window(i->mlx, i->wind);
+				free(i);
+				write (1, "YOU WIN\n", 8);
+				exit(1);
+			}
 		}
 	}
 }
