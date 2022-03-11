@@ -6,13 +6,13 @@
 /*   By: hboukili <hboukili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 22:48:16 by hboukili          #+#    #+#             */
-/*   Updated: 2022/03/11 00:51:55 by hboukili         ###   ########.fr       */
+/*   Updated: 2022/03/11 22:39:28 by hboukili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	move_back(t_draw *i)
+int	move_back(t_draw *i, int m)
 {
 	if (g_map[i->p_n + 1][i->p_x] != '1')
 	{
@@ -32,11 +32,14 @@ void	move_back(t_draw *i)
 				write (1, "YOU WIN\n", 8);
 				exit(1);
 			}
+			m++;
+			ft_printf("%d\n", m);
 		}
 	}
+	return (m);
 }
 
-void	move_forward(t_draw *i)
+int	move_forward(t_draw *i, int m)
 {
 	if (g_map[i->p_n - 1][i->p_x] != '1')
 	{
@@ -56,11 +59,14 @@ void	move_forward(t_draw *i)
 				write (1, "YOU WIN\n", 8);
 				exit(1);
 			}
+			m++;
+			ft_printf("%d\n", m);
 		}
 	}
+	return (m);
 }
 
-void	move_right(t_draw *i)
+int	move_right(t_draw *i, int m)
 {
 	if (g_map[i->p_n][i->p_x + 1] != '1')
 	{
@@ -81,10 +87,13 @@ void	move_right(t_draw *i)
 				exit(1);
 			}
 		}
+		m++;
+		ft_printf("%d\n", m);
 	}
+	return (m);
 }
 
-void	move_left(t_draw *i)
+int	move_left(t_draw *i, int m)
 {
 	if (g_map[i->p_n][i->p_x - 1] != '1')
 	{
@@ -105,7 +114,10 @@ void	move_left(t_draw *i)
 				exit(1);
 			}
 		}
+		m++;
+		ft_printf("%d\n", m);
 	}
+	return (m);
 }
 
 void	key_hook_2(int key, t_draw *i)

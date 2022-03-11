@@ -6,7 +6,7 @@
 /*   By: hboukili <hboukili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 03:22:48 by hboukili          #+#    #+#             */
-/*   Updated: 2022/03/10 23:59:01 by hboukili         ###   ########.fr       */
+/*   Updated: 2022/03/11 22:34:35 by hboukili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ int		len2(unsigned long nb);
 int		ft_print_adress(unsigned long nb);
 int		ft_printf(const char *s, ...);
 int		exit_mouse(int key);
-void	move_back(t_draw *i);
-void	move_forward(t_draw *i);
-void	move_right(t_draw *i);
-void	move_left(t_draw *i);
+int		move_back(t_draw *i, int m);
+int		move_forward(t_draw *i, int m);
+int		move_right(t_draw *i, int m);
+int		move_left(t_draw *i, int m);
 void	key_hook_2(int key, t_draw *i);
 void	ft_pic_make2(t_draw *p);
 

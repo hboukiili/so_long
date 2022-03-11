@@ -6,7 +6,7 @@
 /*   By: hboukili <hboukili@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 03:22:25 by hboukili          #+#    #+#             */
-/*   Updated: 2022/03/11 00:19:48 by hboukili         ###   ########.fr       */
+/*   Updated: 2022/03/11 22:38:55 by hboukili         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,26 +40,13 @@ int	key_hook(int key, t_draw *i)
 	static int	m;
 
 	if (key == 125 || key == 1)
-	{
-		move_back(i);
-		m++;
-	}
+		m = move_back(i, m);
 	else if (key == 126 || key == 13)
-	{
-		move_forward(i);
-		m++;
-	}
+		m = move_forward(i, m);
 	else if (key == 124 || key == 2)
-	{
-		move_right(i);
-		m++;
-	}
+		m = move_right(i, m);
 	else if (key == 123 || key == 0)
-	{
-		move_left(i);
-		m++;
-	}
-	ft_printf("%d\n", m);
+		m = move_left(i, m);
 	key_hook_2(key, i);
 	return (0);
 }
