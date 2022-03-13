@@ -1,4 +1,4 @@
-src = *.c ./printf/*.c ./get_next_line/*.c ./function/*.c
+src = *.c ./ft_printf/*.c ./Read_lines/*.c ./function/*.c
 so_long = so_long
 FLAGS = -Wall -Wextra -Werror -lmlx -framework OpenGL -framework AppKit
 CC = cc
